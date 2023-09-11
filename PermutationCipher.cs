@@ -37,20 +37,20 @@ namespace Ciphers
         {
             if (encryptStr == null || encryptStr.Length == 0) throw new ArgumentNullException();
             if (encryptStr == _str) return encryptStr;
-            
+
             encryptStr = encryptStr.Trim();
             string decryptStr = "";
             int key = (int)Math.Ceiling((double)encryptStr.Length / _key);
 
             for (int i = 0; i < key; i++)
             {
-                for (int j = i; j < encryptStr.Length; j +=key)
+                for (int j = i; j < encryptStr.Length; j += key)
                 {
                     decryptStr += encryptStr[j];
                 }
             }
 
-            return decryptStr;
+            return decryptStr.Trim();
         }
     }
 }
